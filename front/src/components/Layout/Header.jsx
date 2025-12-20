@@ -4,7 +4,7 @@ function Header() {
     return(
         <header>
             <div>
-                <img src="" alt="" />
+                <img alt="logo" />
             </div>
             <div>
                 {/* SEARCH */}
@@ -13,7 +13,7 @@ function Header() {
                 <ul>
                     <Link to="/"><li>Home</li></Link>
                     <Link to="/upload"><li>Upload</li></Link>
-                    <Link><li>Link</li></Link>
+                    <Link to="/login"><li>Connection</li></Link>
                 </ul>
             </nav>
         </header>

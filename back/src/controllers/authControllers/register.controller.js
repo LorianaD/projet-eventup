@@ -2,11 +2,13 @@
 import { register } from "../../services/authServices/register.service.js";
 
 export async function registerController (req, res, next) {
+    console.log("registerController ok");
     try {
         console.log("try dans la fonction registerController dans controllers/authControllers/register.controller.js ok");
         
         //appeler ma funciton qui contient ma logique de register
         const user = await register(req.body)
+        console.log(user);
 
         //la response
         res.status(201).json({
