@@ -1,17 +1,19 @@
-import mysql from "mysql2/promise"
+import mysql from "mysql2/promise";
+import { env } from "../config/env.js";
 
 export const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
+  host: env.db.host,
+  user: env.db.user,
+  password: env.db.password,
+  database: env.db.database,
+  port: env.db.port,
   waitForConnections: true,
   connectionLimit: 10,
+  connectTimeout: 10000,
 });
 
-//fonction pour tester si la connexion marche
 export async function testConnection() {
-    const [rows] = await pool.query("SELECT NOW() AS now");
-    console.log("co a mysql ok a," ,rows[0].now);
+  console.log("fonction testConnection dans db/index.js ok");
+  const [rows] = await pool.query("SELECT NOW() AS now");
+  console.log("co a mysql ok a,", rows[0].now);
 }

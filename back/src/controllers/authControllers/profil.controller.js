@@ -1,5 +1,6 @@
 export async function profilController(req, res) {
-    return res.json({
-        message: "test profilController ok"
-    })
+    console.log(req.user);
+    res.json({
+        user: req.user
+    });
 }
