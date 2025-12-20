@@ -22,7 +22,7 @@ export async function register(name, firstname, email, password, birth_date) {
 
     // petite gestion d'erreur
     if (!response.ok) {
-        throw new Error(data.Error || "l'inscription a échoué");
+        throw new Error(data?.error || data?.message || "l'inscription a échoué");
     }
 
     return data;

@@ -1,4 +1,4 @@
-import VideoUpload from "../VideosComponents/VideoUpload"
+import VideoUpload from "../components/Videos/VideoUpload"
 
 function VideoUploadPage() {
     return(

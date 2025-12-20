@@ -1,4 +1,4 @@
-import VideoList from "../VideosComponents/VideoList"
+import VideoList from '../components/Videos/VideoList'
 
 function Home() {
     return(

@@ -13,7 +13,9 @@ app.use(morgan("dev"));
 
 // route test
 app.get("/", (res) => {
-  res.json({ message: "Eventup is running" });
+  res.json({
+    message: "the site Eventup is running"
+  });
 });
 
 // routes API
@@ -23,7 +25,10 @@ app.use(notFound);
 
 app.use((err, res) => {
   console.error(err);
-  return res.status(500).json({ error: "Erreur serveur", details: err.message });
+  return res.status(500).json({
+    error: "Erreur serveur",
+    details: err.message
+  });
 });
 
 export default app;

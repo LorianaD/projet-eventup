@@ -5,7 +5,7 @@ export async function register({name, firstname, email, password, birth_date}) {
     console.log("fonction register dans services/authServices/register.service.js ok");
     
     // validation basique (si les champs sont présent)
-    if(!name || firstname || !email || !password || !birth_date) {
+    if(!name || !firstname || !email || !password || !birth_date) {
        const error = new Error('nom, prenom, email, mdp et date de naissance obligatoir');
        error.status = 400;
        throw error;
@@ -17,8 +17,8 @@ export async function register({name, firstname, email, password, birth_date}) {
     
     //enregistrer l'utilisateur dans la db
     const query = `
-        INSERT INTO users (email, password_hash, birth_date, birth_city) 
-        VALUES (?,?,?,?)
+        INSERT INTO users (name, firstname, email, password_hash, birth_date) 
+        VALUES (?,?,?,?,?)
     `;
     console.log(query);
     
