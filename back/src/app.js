@@ -20,6 +20,7 @@ app.get("/", (res) => {
 
 // routes API
 app.use("/api", router);
+// app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 app.use(notFound);
 

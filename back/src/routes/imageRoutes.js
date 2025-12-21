@@ -12,5 +12,6 @@ router.get("/:id", imageViewController);
 
 // route en post
 router.post("/", imageUploadController);
+// router.post("/:id/img", upload.single('img'), imageUploadController.uploadImage)
 
 export default router;
