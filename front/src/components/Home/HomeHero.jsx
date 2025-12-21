@@ -1,6 +1,6 @@
 function HomeHero() {
     return(
-        <section className="w-[80%] place-content-center place-items-center gap-[24px] my-[30px]" >
+        <section className="place-content-center place-items-center gap-[24px] my-[30px]" >
             <h1>Bienvenue sur</h1>
             <div className="w-[200px]">
                 <img src="./src/assets/imgs/logo.png" alt="EVENTIA" className="w-full" />

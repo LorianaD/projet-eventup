@@ -34,7 +34,7 @@ function LoginForm() {
     }
 
     return(
-        <form onSubmit={handleSubmit} className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-[24px]">
+        <form onSubmit={handleSubmit} className="fieldset bg-base-200 border-base-300 rounded-box w-xs border form-components">
             <legend className="fieldset-legend">Se connecter</legend>
             <div className="my-[10px]">
                 <label htmlFor="email" className="label w-full my-[10px]">Votre e-mail</label>

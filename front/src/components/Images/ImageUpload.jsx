@@ -1,7 +1,7 @@
-function VideoUpload() {
+function ImageUpload() {
     return(
         <form className="fieldset bg-base-200 border-base-300 rounded-box w-xl border form-components">
-            <legend className="text-4xl font-bold text-primary">Ajouter une vidéo</legend>
+            <legend className="text-4xl font-bold text-primary">Ajouter une image</legend>
             <div className="my-[10px] w-[70%]">
                 <label htmlFor="title" className="label w-full my-[10px]">Titre</label>
                 <input type="text" name="title" id="title" className="input input-primary w-full" />                
@@ -28,4 +28,4 @@ function VideoUpload() {
     )
 }
 
-export default VideoUpload
+export default ImageUpload

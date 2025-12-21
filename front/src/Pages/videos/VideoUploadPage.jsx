@@ -1,8 +1,8 @@
-import VideoUpload from "../components/Videos/VideoUpload"
+import VideoUpload from "../../components/Videos/VideoUpload"
 
 function VideoUploadPage() {
     return(
-        <main>
+        <main className="bg-videos-pages bg-pages">
             < VideoUpload />
         </main>
     )

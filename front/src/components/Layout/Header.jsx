@@ -40,8 +40,9 @@ function Header() {
             <nav className="navbar-end flex items-center gap-2">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to="/" className="hover:bg-primary hover:text-primary-content">Home</Link></li>
-                    <li><Link className="hover:bg-primary hover:text-primary-content">Vidéo</Link></li>
-                    <li><Link className="hover:bg-primary hover:text-primary-content">Images</Link></li>
+                    <li><Link className="hover:bg-primary hover:text-primary-content">Evenement</Link></li>
+                    <li><Link to="/videos" className="hover:bg-primary hover:text-primary-content">Vidéo</Link></li>
+                    <li><Link to="/images" className="hover:bg-primary hover:text-primary-content">Images</Link></li>
                     <li><Link className="hover:bg-primary hover:text-primary-content">Sons</Link></li>
                 </ul>
 
@@ -59,8 +60,8 @@ function Header() {
                             <li><Link to="login">Connexion</Link></li>
                         ) : (
                             <>
-                                <li><Link to="/upload">Ajoutér une vidéo</Link></li>
-                                <li><Link>Ajouter une image</Link></li>
+                                <li><Link to="/videos/upload">Ajoutér une vidéo</Link></li>
+                                <li><Link to="/images/upload">Ajouter une image</Link></li>
                                 <li><Link>Ajouter un son</Link></li>
                             
                                 <button type="button" onClick={handleLogout}>Déconnexion</button>
