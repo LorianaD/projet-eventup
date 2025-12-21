@@ -34,16 +34,17 @@ function LoginForm() {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="email">Votre e-mail</label>
-                <input type="email" name="email" id="email" value={values.email} onChange={handleChange} required disabled={loading}/>
+        <form onSubmit={handleSubmit} className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-[24px]">
+            <legend className="fieldset-legend">Se connecter</legend>
+            <div className="my-[10px]">
+                <label htmlFor="email" className="label w-full my-[10px]">Votre e-mail</label>
+                <input type="email" name="email" id="email" value={values.email} onChange={handleChange} required disabled={loading} className="input input-primary" placeholder="ex. prenom.nom@example.com"/>
             </div>
-            <div>
-                <label htmlFor="password">Votre mot de passe</label>
-                <input type="password" name="password" id="password" value={values.password} onChange={handleChange} required disabled={loading}/>
+            <div className="my-[10px]">
+                <label htmlFor="password" className="label w-full my-[10px]">Votre mot de passe</label>
+                <input type="password" name="password" id="password" value={values.password} onChange={handleChange} required disabled={loading}  className="input input-primary" placeholder="***********"/>
             </div>
-            <button type="submit" disabled={loading}>
+            <button type="submit" disabled={loading} className="btn btn-primary mt-4">
                 {loading ? "Connexion..." : "Se connecter"}
             </button>
             <p>{message}</p>
