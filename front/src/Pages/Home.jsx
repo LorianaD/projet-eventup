@@ -1,10 +1,9 @@
-import VideoList from '../components/Videos/VideoList'
+import HomeHero from '../components/Home/HomeHero'
 
 function Home() {
     return(
-        <main>
-            <h2>Home</h2>
-            < VideoList />
+        <main className='place-items-center'>
+            < HomeHero />
         </main>
     )
 }

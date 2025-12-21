@@ -13,22 +13,36 @@ function Header() {
     return(
         <header className="navbar bg-base-100 shadow-sm px-2">
             {/* TITRE DU SITE / LOGO */}
-            <div className="navbar-start">
-                <Link to="/" className="btn btn-ghost px-2">
-                    <img alt="logo" className="h-8 w-auto"/>
+            <div className="navbar-start rounded-full">
+                <Link to="/" className="btn btn-ghost px-2 rounded-full">
+                    <img src="./src/assets/imgs/logo.png" alt="logo" className="h-10 w-auto"/>
                 </Link>
             </div>
             {/* SEARCH */}
             <div className="navbar-center">
-                <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto input-primary"/>
+                <label className="input input-primary">
+                <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g
+                        strokeLinejoin="round"
+                        strokeLinecap="round"
+                        strokeWidth="2.5"
+                        fill="none"
+                        stroke="currentColor"
+                        >
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input type="search" className="grow" placeholder="Search" />
+                </label>
             </div>
             {/* MENU */}
             <nav className="navbar-end flex items-center gap-2">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link>Vidéo</Link></li>
-                    <li><Link>Images</Link></li>
-                    <li><Link>Sons</Link></li>
+                    <li><Link to="/" className="hover:bg-primary hover:text-primary-content">Home</Link></li>
+                    <li><Link className="hover:bg-primary hover:text-primary-content">Vidéo</Link></li>
+                    <li><Link className="hover:bg-primary hover:text-primary-content">Images</Link></li>
+                    <li><Link className="hover:bg-primary hover:text-primary-content">Sons</Link></li>
                 </ul>
 
                 <div className="dropdown dropdown-end">
