@@ -3,6 +3,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 // logique d'instruction
 export async function register(name, firstname, email, password, birth_date) {
+
     console.log("fonction register dans services OK");
     
     // faire la req post sur la route /api/auth/register
@@ -11,9 +12,17 @@ export async function register(name, firstname, email, password, birth_date) {
         headers: {
             'Content-Type' : `application/json`
         },
+
         // passer les data au body
-        body: JSON.stringify({name, firstname, email, password, birth_date}),
+        body: JSON.stringify({
+            name,
+            firstname,
+            email,
+            password,
+            birth_date
+        }),
     });
+    
     console.log(response);
 
     // pass la response json
