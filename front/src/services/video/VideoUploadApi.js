@@ -1,25 +1,21 @@
 // Recupere l'url de l'api dans le fichier .env
 const API_URL = import.meta.env.VITE_API_URL;
 
-export async function uploadVideos(files) {
-    console.log("la fonction uploadVideos marche");
+export async function uploadVideo(formData) {
+    console.log("function uploadVideo dans VideoUploadApi.js OK");
     
-
-    const formData = new FormData();
-    console.log(formData);
-
-    formData.append("file", files[0]);
-
-    formData.append("upload_preset", "<your upload preset>");
-
-    fetch(`${API_URL}/video/`, {
+    const response = await fetch(`${API_URL}/api/video`, {
         method: "POST",
         body: formData,
-    })
+    });
+    console.log(response);
 
-    const data = await response.json();
+    const data = await response.json().catch(() => null);
     console.log(data);
 
-    return data;
+    if (!response.ok) {
+        throw new Error(data?.error || "Erreur upload vidéo");
+    }
 
+    return data;
 }

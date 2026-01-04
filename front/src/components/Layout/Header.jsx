@@ -15,7 +15,7 @@ function Header() {
             {/* TITRE DU SITE / LOGO */}
             <div className="navbar-start rounded-full">
                 <Link to="/" className="btn btn-ghost px-2 rounded-full">
-                    <img src="./src/assets/imgs/logo.png" alt="logo" className="h-10 w-auto"/>
+                    <img src="../src/assets/imgs/logo.png" alt="logo" className="h-10 w-auto"/>
                 </Link>
             </div>
             {/* SEARCH */}
@@ -51,7 +51,7 @@ function Header() {
                         <div className="w-10 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
-                                src="./src/assets/imgs/icons-user.png"
+                                src="../src/assets/imgs/icons-user.png"
                             />
                         </div>
                     </div>

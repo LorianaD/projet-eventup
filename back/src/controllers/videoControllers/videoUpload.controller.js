@@ -1,3 +1,5 @@
+import { createVideoService } from "../../services/videoServices/video.service.js";
+
 export function TestVideoUploadController(req, res) {
   
   return res.json({
@@ -5,63 +7,28 @@ export function TestVideoUploadController(req, res) {
   })
 }
 
-export async function uploadVideoController(req, res) {
+export async function uploadVideoController(req, res, next) {
   try {
+    const body = req.validatedBody;
 
-    console.log("try dans la fonction uploadVideoController OK");
-    
-    if (!req.file) {
-      res.status(400).json({
-        error: "Aucun fichier reçu (champ 'video')"
-      });
-      return;
-    }
-
-    const title = req.body.title;
-    const description = req.body.description;
-    console.log(title, description);
-
-    const videoData = {
-      title: title,
-      description: description,
-      filename: req.file.filename,
-      original_name: req.file.originalname,
-      mime_type: req.file.mimetype,
-      size: req.file.size,
+    const payload = {
+      title: body.title,
+      file: req.file.originalname,
+      theme_id: body.theme_id ?? null,
+      description: body.description ?? null,
+      type: req.file.mimetype ?? null,
+      size: String(req.file.size ?? ""),
       path: req.file.path,
+      user_id: body.user_id ?? null,
     };
-    console.log(videoData);
-    
-    const created = await createVideo(videoData);
-    console.log(created);
-    
 
-    res.status(201).json({
-      message: "Upload vidéo OK",
+    const created = await createVideoService(payload);
+
+    return res.status(201).json({
+      message: "Vidéo créée",
       video: created,
     });
-
-  } catch (error) {
-
-    // Gestion erreurs Multer (type / size)
-    if (error.code === "LIMIT_FILE_SIZE") {
-      res.status(413).json({
-        error: "Fichier trop volumineux"
-      });
-      return;
-		}
-
-    if (error.message === "TYPE_NOT_ALLOWED") {
-      res.status(415).json({
-        error: "Type vidéo refusé (mp4/webm/mov)"
-      });
-      return;
-    }
-
-    res.status(500).json({
-      error: "Erreur serveur",
-      details: error.message
-    });
-
+  } catch (err) {
+    next(err);
   }
 }

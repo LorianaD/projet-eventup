@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "../../hooks/useForm";
+import { uploadVideo } from "../../services/video/VideoUploadApi.js"
 
 function VideoUpload() {
     const { values, handleChange } = useForm({
@@ -19,26 +20,25 @@ function VideoUpload() {
         setLoading(true);
 
         try {
+
             console.log("try dans fonction handleSubmit est OK");
             
-            const result = await register(
-                values.title,
-                values.file,
-                values.theme_id,
-                values.description
-            );
+            const formData = new FormData();
 
+            formData.append("title", values.title);
+            formData.append("video", values.file);
+            formData.append("description", values.description);
+            formData.append("theme_id", values.theme_id);
+
+            const result = await uploadVideo(formData);
             console.log(result);
-            setMessage("Super ! Inscription réussie.");
 
-            // setTimeout(() => {
-            //     navigate("/profil");
-            // }, 1000);
+            setMessage("Vidéo envoyée");
 
         } catch (error) {
 
             console.error("erreur:", error);
-            setMessage("Erreur lors de l'inscription");
+            setMessage("Erreur lors de l'envoi");
 
         } finally {
 
@@ -56,11 +56,11 @@ function VideoUpload() {
             </div>
             <div className="my-[10px] w-[70%]">
                 <label htmlFor="video" className="label w-full my-[10px]">Vidéo</label>
-                <input type="file" name="video" id="video" value={values.file} onChange={handleChange} required disabled={loading} className="file-input file-input-primary w-full" />
+                <input type="file" name="file" id="video" accept="video/*" onChange={handleChange} required disabled={loading} className="file-input file-input-primary w-full" />
             </div>
             <div className="my-[10px] w-[70%]">
                 <label htmlFor="theme" className="label w-full my-[10px]">Théme de la vidéo</label>
-                <select name="theme" id="theme" className="select select-primary w-full">
+                <select   name="theme_id" id="theme" value={values.theme_id} onChange={handleChange} disabled={loading} className="select select-primary w-full">
                     <option value="">Choigisez le théme</option>
                 </select>
             </div>

@@ -1,11 +1,16 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-const required = ["DB_HOST", "DB_USER", "DB_NAME", "DB_PASSWORD", "DB_PORT", "JWT_SECRET"];
+const required = ["DB_HOST", "DB_USER", "DB_NAME", "DB_PORT", "JWT_SECRET"];
 for (const key of required) {
   if (!process.env[key]) {
     throw new Error(key + " manquant dans le fichier .env");
   }
+}
+
+// DB_PASSWORD : peut être vide (Windows), mais pas undefined
+if (process.env.DB_PASSWORD === undefined) {
+  throw new Error("DB_PASSWORD manquant dans le fichier .env");
 }
 
 export const env = {
@@ -15,7 +20,7 @@ export const env = {
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT ?? 3306),
     user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
+    password: process.env.DB_PASSWORD || "",
     database: process.env.DB_NAME,
   },
 };
