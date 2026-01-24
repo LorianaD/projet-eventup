@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { uploadVideoController } from "../controllers/videoControllers/videoUpload.controller.js";
-import { videoListController } from "../controllers/videoControllers/videoList.controller.js";
+import { listVideosController } from "../controllers/videoControllers/videoList.controller.js";
 import { videoStreamController } from "../controllers/videoControllers/videoStream.controller.js";
 import { uploadVideo } from "../middlewares/videoUpload.middleware.js";
 import { validateVideoCreate } from "../middlewares/validateVideoUpload.middleware.js";
@@ -8,7 +8,7 @@ import { validateVideoCreate } from "../middlewares/validateVideoUpload.middlewa
 const router = Router();
 
 // routes en get
-router.get("/", videoListController);
+router.get("/", listVideosController);
 router.get("/:id", videoStreamController);
 
 // route en post

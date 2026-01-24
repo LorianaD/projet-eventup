@@ -1,86 +1,86 @@
-// import { useEffect, useState } from "react";
-// import { Link } from "react-router";
-// import { fetchVideos } from "../../services/videoApi";
+import { useEffect, useState } from "react";
+import { Link } from "react-router";
+import { fetchVideos } from "../../services/video/VideoListApi.js";
 
 function VideoList() {
-    // const [videos, setVideos] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    // const [errorMsg, setErrorMsg] = useState("");
+    const [videos, setVideos] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [errorMsg, setErrorMsg] = useState("");
 
-    // useEffect(() => {
-    //     let isMounted = true;
+    useEffect(() => {
+        let isMounted = true;
 
-    //     async function load() {
+        async function load() {
 
-    //         console.log("fonction load dans VideoList OK");
+            console.log("fonction load dans VideoList OK");
 
-    //         try {
+            try {
 
-    //             console.log("try dans la la fonction load dans VideoList OK");
+                console.log("try dans la la fonction load dans VideoList OK");
                 
-    //             setLoading(true);
-    //             setErrorMsg("");
+                setLoading(true);
+                setErrorMsg("");
 
-    //             const data = await fetchVideos();
-    //             console.log(data);
+                const data = await fetchVideos();
+                console.log(data);
                 
-    //             const list = Array.isArray(data) ? data : (data.videos ?? []);
-    //             console.log(list);
+                const list = Array.isArray(data) ? data : (data.videos ?? []);
+                console.log(list);
 
-    //             if (isMounted) setVideos(list);
+                if (isMounted) setVideos(list);
 
-    //         } catch (err) {
+            } catch (err) {
 
-    //             if (isMounted) setErrorMsg(err?.message || "Erreur inconnue");
+                if (isMounted) setErrorMsg(err?.message || "Erreur inconnue");
 
-    //         } finally {
+            } finally {
 
-    //             if (isMounted) setLoading(false);
+                if (isMounted) setLoading(false);
 
-    //         }
-    //     }
+            }
+        }
 
-    //     load();
+        load();
 
-    //     return () => {
+        return () => {
 
-    //         isMounted = false;
+            isMounted = false;
 
-    //     };
+        };
         
-    // }, []);
+    }, []);
 
-    // if (loading) {
-    //     return (
-    //         <section className="p-6">
-    //             <h2 className="text-2xl font-semibold mb-4">Vidéos</h2>
-    //             <div className="flex items-center gap-3">
-    //                 <span className="loading loading-spinner loading-md"></span>
-    //                 <p>Chargement des vidéos…</p>
-    //             </div>
-    //         </section>
-    //     );
-    // }
+    if (loading) {
+        return (
+            <section className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Vidéos</h2>
+                <div className="flex items-center gap-3">
+                    <span className="loading loading-spinner loading-md"></span>
+                    <p>Chargement des vidéos…</p>
+                </div>
+            </section>
+        );
+    }
 
-//   if (errorMsg) {
-//     return (
-    //       <section className="p-6">
-    //             <h2 className="text-2xl font-semibold mb-4">Vidéos</h2>
+    if (errorMsg) {
+        return (
+            <section className="p-6">
+                    <h2 className="text-2xl font-semibold mb-4">Vidéos</h2>
 
-    //             <div className="alert alert-error">
-    //              <span>Impossible de charger la liste : {errorMsg}</span>
-    //             </div>
+                    <div className="alert alert-error">
+                    <span>Impossible de charger la liste : {errorMsg}</span>
+                    </div>
 
-    //             <button
-    //             type="button"
-    //             className="btn btn-outline mt-4"
-    //             onClick={() => window.location.reload()}
-    //             >
-    //              Réessayer
-    //             </button>
-    //       </section>
-//     );
-//   }
+                    <button
+                    type="button"
+                    className="btn btn-outline mt-4"
+                    onClick={() => window.location.reload()}
+                    >
+                    Réessayer
+                    </button>
+            </section>
+        );
+    }
 
     return (
         <section className="p-6 bg-white bg-transparent w-[80%]">
@@ -88,7 +88,7 @@ function VideoList() {
                 <h2 className="text-2xl font-semibold">Toutes les vidéos</h2>
             </div>
 
-            {/* {videos.length === 0 ? (
+            {videos.length === 0 ? (
                 <div className="alert">
                     <span>Aucune vidéo pour le moment.</span>
                 </div>
@@ -126,7 +126,7 @@ function VideoList() {
                                     {/* route détail : adapte selon ton router */}
                                     {/* <Link to={`/videos/${v.id}`} className="btn btn-sm btn-outline">
                                         Voir
-                                    </Link>
+                                    </Link> */}
                                     <a
                                         href={`http://localhost:3000/api/video/${v.id}/stream`}
                                         className="btn btn-sm btn-primary"
@@ -140,7 +140,7 @@ function VideoList() {
                         </div>
                     ))}
                 </div>
-            )} */}
+            )}
         </section>
     );
 }

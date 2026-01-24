@@ -1,10 +1,13 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
 export async function fetchVideos() {
-    const response = await fetch(`${API_URL}/api/videos`, {
+    console.log("async function fetchVideos ok");
+    
+    const response = await fetch(`${API_URL}/api/video`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
     });
+    console.log(response);
 
     if (!response.ok) {
         const text = await response.text().catch(() => "");
