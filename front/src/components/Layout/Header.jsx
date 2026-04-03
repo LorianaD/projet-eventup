@@ -1,4 +1,5 @@
-import { Link, useNavigate } from "react-router"
+import { Link, useNavigate } from "react-router";
+import logo from "../../assets/imgs/logo.png";
 
 function Header() {
 
@@ -15,7 +16,7 @@ function Header() {
             {/* TITRE DU SITE / LOGO */}
             <div className="navbar-start rounded-full">
                 <Link to="/" className="btn btn-ghost px-2 rounded-full">
-                    <img src="../src/assets/imgs/logo.png" alt="logo" className="h-10 w-auto"/>
+                    <img src={ logo } alt="logo" className="h-10 w-auto"/>
                 </Link>
             </div>
             {/* SEARCH */}
