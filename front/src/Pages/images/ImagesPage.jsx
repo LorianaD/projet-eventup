@@ -1,4 +1,4 @@
-import ImageList from "../../components/Images/imageList"
+import ImageList from "../../components/Images/ImageList.jsx"
 
 function ImagesPage() {
     return(
