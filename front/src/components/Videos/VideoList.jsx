@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { fetchVideos } from "../../services/video/VideoListApi.js";
+import { API_URL } from "../../services/video/VideoListApi.js";
 
 function VideoList() {
     const [videos, setVideos] = useState([]);
@@ -68,7 +69,7 @@ function VideoList() {
                     <h2 className="text-2xl font-semibold mb-4">Vidéos</h2>
 
                     <div className="alert alert-error">
-                    <span>Impossible de charger la liste : {errorMsg}</span>
+                    <span>Les vidéos seront bientôt disponibles.</span>
                     </div>
 
                     <button
@@ -83,7 +84,7 @@ function VideoList() {
     }
 
     return (
-        <section className="p-6 bg-white bg-transparent w-[80%]">
+        <section className="p-6 bg-white w-[80%]">
             <div className="flex items-end justify-between mb-4">
                 <h2 className="text-2xl font-semibold">Toutes les vidéos</h2>
             </div>
@@ -109,7 +110,7 @@ function VideoList() {
                                         controls
                                         preload="metadata"
                                         // adapte si ton endpoint stream est différent
-                                        src={`http://localhost:3000/api/video/${v.id}/stream`}
+                                        src={`${API_URL}/api/video/${v.id}/stream`}
                                     />
                                 )}
                             </figure>
@@ -128,7 +129,7 @@ function VideoList() {
                                         Voir
                                     </Link> */}
                                     <a
-                                        href={`http://localhost:3000/api/video/${v.id}/stream`}
+                                        href={`${API_URL}/api/video/${v.id}/stream`}
                                         className="btn btn-sm btn-primary"
                                         target="_blank"
                                         rel="noreferrer"
