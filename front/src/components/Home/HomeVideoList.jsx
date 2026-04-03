@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchVideos } from "../../services/video/VideoListApi.js";
 import { Link } from "react-router";
+import { API_URL } from "../../services/video/VideoListApi.js";
 
 function HomeVideoList() {
     const [videos, setVideos] = useState([]);
@@ -61,7 +62,7 @@ function HomeVideoList() {
             <section className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Dernières vidéos</h2>
                 <div className="alert alert-error">
-                <span>Impossible de charger la liste : {errorMsg}</span>
+                <span>Les vidéos seront bientôt disponibles.</span>
                 </div>
             </section>
         );
@@ -104,7 +105,7 @@ function HomeVideoList() {
                                     className="h-full w-full object-cover"
                                     controls
                                     preload="metadata"
-                                    src={`http://localhost:3000/api/video/${v.id}/stream`}
+                                    src={`${API_URL}/api/video/${v.id}/stream`}
                                 />
                             </figure>
 
