@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import logo from "../../assets/imgs/logo.png";
+import iconUser from "../../assets/imgs/icons-user.png"
 
 function Header() {
 
@@ -52,7 +53,7 @@ function Header() {
                         <div className="w-10 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
-                                src="../src/assets/imgs/icons-user.png"
+                                src={iconUser}
                             />
                         </div>
                     </div>
