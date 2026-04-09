@@ -1,0 +1,237 @@
+/*************************************************************************
+**************************** VIDEO PAGE **********************************
+*************************************************************************/
+
+.video-page {
+    @apply 
+        px-4 
+        py-10 
+        md:px-8;
+}
+
+.video-page__container {
+    @apply 
+        mx-auto 
+        w-full 
+        max-w-6xl 
+        rounded-3xl 
+        bg-white/90 
+        p-6 
+        shadow-xl 
+        backdrop-blur-sm 
+        md:p-8;
+}
+
+.video-page__header {
+    @apply mb-8;
+}
+
+.video-page__eyebrow {
+    @apply 
+        mb-2 
+        text-sm 
+        font-semibold 
+        uppercase 
+        tracking-wider 
+        text-primary;
+}
+
+.video-page__title {
+    @apply 
+        text-2xl 
+        font-semibold 
+        md:text-3xl;
+}
+
+.video-page__subtitle {
+    @apply 
+        mt-2 
+        text-sm 
+        leading-relaxed 
+        text-base-content/70 
+        md:text-base;
+}
+
+/*************************************************************************
+**************************** STATES **************************************
+*************************************************************************/
+
+.video-page__state {
+    @apply 
+        flex 
+        min-h-44 
+        flex-col 
+        items-center 
+        justify-center 
+        rounded-2xl 
+        p-6 
+        text-center;
+}
+
+.video-page__state--loading {
+    @apply 
+        gap-3 
+        border 
+        border-base-200 
+        bg-base-100;
+}
+
+.video-page__state--error {
+    @apply 
+        border 
+        border-error/20 
+        bg-error/10;
+}
+
+.video-page__state--empty {
+    @apply 
+        border 
+        border-base-200 
+        bg-base-100;
+}
+
+/*************************************************************************
+**************************** VIDEO GRID **********************************
+*************************************************************************/
+
+.video-grid {
+    @apply 
+        grid 
+        gap-6 
+        sm:grid-cols-2 
+        lg:grid-cols-3;
+}
+
+/*************************************************************************
+**************************** VIDEO CARD **********************************
+*************************************************************************/
+
+.video-card {
+    @apply 
+        flex 
+        flex-col 
+        overflow-hidden 
+        rounded-3xl 
+        border 
+        border-base-200 
+        bg-base-100 
+        shadow-sm 
+        transition 
+        duration-300 
+        hover:-translate-y-1 
+        hover:shadow-xl;
+}
+
+.video-card__media {
+    @apply 
+        relative 
+        aspect-video 
+        overflow-hidden 
+        bg-base-200;
+}
+
+.video-card__img {
+    @apply 
+        h-full 
+        w-full 
+        object-cover 
+        transition 
+        duration-500;
+}
+
+.video-card:hover .video-card__img {
+    @apply scale-105;
+}
+
+.video-card__overlay {
+    @apply 
+        absolute 
+        inset-0 
+        bg-black/20 
+        transition 
+        duration-300;
+}
+
+.video-card:hover .video-card__overlay {
+    @apply bg-black/30;
+}
+
+.video-card__play {
+    @apply 
+        absolute 
+        left-1/2 
+        top-1/2 
+        -translate-x-1/2 
+        -translate-y-1/2 
+        shadow-lg;
+}
+
+.video-card__body {
+    @apply 
+        flex 
+        flex-1 
+        flex-col 
+        p-4;
+}
+
+.video-card__title {
+    @apply 
+        text-lg 
+        font-semibold 
+        leading-snug 
+        line-clamp-1;
+}
+
+.video-card__description {
+    @apply 
+        mt-2 
+        text-sm 
+        leading-relaxed 
+        text-base-content/70 
+        line-clamp-3;
+}
+
+.video-card__description--empty {
+    @apply 
+        italic 
+        text-base-content/50;
+}
+
+.video-card__actions {
+    @apply 
+        mt-4 
+        flex 
+        justify-end;
+}
+
+/*************************************************************************
+**************************** VIDEO STREAM ********************************
+*************************************************************************/
+
+.video-stream {
+    @apply flex flex-col gap-6;
+}
+
+.video-stream__media {
+    @apply w-full aspect-video overflow-hidden rounded-2xl bg-base-200;
+}
+
+.video-stream__img {
+    @apply h-full w-full object-cover;
+}
+
+.video-stream__video {
+    @apply h-full w-full object-cover;
+}
+
+.video-stream__content {
+    @apply flex flex-col gap-3;
+}
+
+.video-stream__title {
+    @apply text-2xl font-bold;
+}
+
+.video-stream__description {
+    @apply text-base text-base-content/70 leading-relaxed;
+}

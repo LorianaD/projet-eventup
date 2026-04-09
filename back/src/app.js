@@ -11,8 +11,11 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+// fichiers statiques
+app.use("/uploads", express.static("uploads"));
+
 // route test
-app.get("/", (res) => {
+app.get("/", (req, res) => {
   res.json({
     message: "the site Eventup is running"
   });
@@ -20,11 +23,10 @@ app.get("/", (res) => {
 
 // routes API
 app.use("/api", router);
-// app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 app.use(notFound);
 
-app.use((err, res) => {
+app.use((err, req, res, next) => {
   console.error(err);
   return res.status(500).json({
     error: "Erreur serveur",

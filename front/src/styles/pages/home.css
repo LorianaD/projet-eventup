@@ -1,0 +1,199 @@
+.home-page {
+    @apply 
+        bg-base-100 
+        text-base-content;
+}
+
+.home-hero {
+    @apply 
+        mx-auto 
+        grid 
+        max-w-7xl 
+        gap-10 
+        px-6 py-16 
+        md:grid-cols-2 
+        md:items-center
+        md:w-full
+        lg:px-10 lg:py-24;
+}
+
+.home-hero__content {
+    @apply 
+        flex 
+        flex-col 
+        items-start 
+        gap-5;
+}
+
+.home-hero__badge {
+    @apply 
+        font-medium;
+}
+
+.home-hero__title {
+    @apply 
+        text-4xl 
+        font-bold 
+        leading-tight 
+        md:text-5xl;
+}
+
+.home-hero__text {
+    @apply 
+        max-w-xl 
+        text-base-content/70 
+        text-lg 
+        leading-relaxed;
+}
+
+.home-hero__actions {
+    @apply 
+        flex 
+        flex-wrap 
+        gap-4 pt-2;
+}
+
+.home-hero__visual {
+    @apply 
+        flex 
+        items-center 
+        justify-center;
+}
+
+.home-hero__logo-box {
+    @apply 
+        flex 
+        h-72 w-72 
+        items-center 
+        justify-center 
+        rounded-3xl 
+        border 
+        border-base-300 
+        bg-base-200/50 
+        p-8 
+        shadow-xl 
+        md:h-96 
+        md:w-96;
+}
+
+.home-hero__logo {
+    @apply 
+        h-auto 
+        w-full 
+        object-contain;
+}
+
+.home-section {
+    @apply 
+        mx-auto 
+        max-w-7xl 
+        px-6 py-10 
+        lg:px-10;
+}
+
+.home-section__header {
+    @apply 
+        mb-6 
+        flex 
+        flex-col 
+        gap-3 
+        sm:flex-row 
+        sm:items-end 
+        sm:justify-between;
+}
+
+.home-section__title-box {
+    @apply 
+        flex 
+        flex-col 
+        gap-2;
+}
+
+.home-section__title {
+    @apply 
+        text-3xl 
+        font-bold;
+}
+
+.home-section__subtitle {
+    @apply 
+        max-w-2xl 
+        text-base-content/70;
+}
+
+.home-section__content {
+    @apply mt-6;
+}
+
+.home-card {
+    @apply 
+        rounded-2xl 
+        border 
+        border-base-300 
+        bg-base-100 
+        shadow-md 
+        transition 
+        duration-300 
+        hover:-translate-y-1 
+        hover:shadow-xl;
+}
+
+.home-media {
+    @apply 
+        aspect-video 
+        w-full 
+        overflow-hidden 
+        rounded-t-2xl 
+        bg-base-200;
+}
+
+.home-media img,
+.home-media video {
+    @apply 
+        h-full 
+        w-full 
+        object-cover;
+}
+
+.home-media video {
+    @apply transition duration-300;
+}
+
+.home-media:hover video {
+    @apply scale-105;
+}
+
+.home-card__body {
+    @apply p-5;
+}
+
+.home-card__title {
+    @apply 
+        text-lg 
+        font-semibold;
+}
+
+.home-card__text {
+    @apply 
+        mt-2 
+        text-sm 
+        text-base-content/70;
+}
+
+.home-horizontal-list {
+    @apply 
+        flex 
+        gap-6 
+        overflow-x-auto 
+        pb-2;
+}
+
+.home-horizontal-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.home-horizontal-list::-webkit-scrollbar-thumb {
+    @apply 
+        rounded-full 
+        bg-base-300;
+}

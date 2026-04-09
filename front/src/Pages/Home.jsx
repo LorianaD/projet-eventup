@@ -12,7 +12,6 @@ function Home() {
                 < HomeImageList />
                 < HomeArticleList />
             </div>
-
         </main>
     )
 }

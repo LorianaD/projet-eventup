@@ -1,4 +1,3 @@
-import './App.css'
 import { Route, Routes } from 'react-router'
 import MainLayout from './components/Layout/MainLayout'
 import Home from './Pages/Home'
@@ -9,6 +8,7 @@ import VideoPage from './Pages/videos/VideoPage'
 import ImagesPage from './Pages/images/ImagesPage'
 import VideoUploadPage from './Pages/videos/VideoUploadPage'
 import ImageUploadPage from './Pages/images/ImageUploadPage'
+import VideoStreamPage from './Pages/videos/VideoStream'
 
 function App() {
 
@@ -18,6 +18,7 @@ function App() {
         <Route element={< MainLayout />}>
           <Route path='/' element={< Home />}/>
           <Route path='/videos' element={< VideoPage />}/>
+          <Route path='/videos/:id' element={<VideoStreamPage />} />
           <Route path='/images' element={< ImagesPage />}/>
           <Route path='/register' element={< RegisterPage />}/>
           <Route path='/login' element={< LoginPage />}/>

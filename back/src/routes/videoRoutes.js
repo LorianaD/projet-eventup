@@ -12,6 +12,6 @@ router.get("/", listVideosController);
 router.get("/:id", videoStreamController);
 
 // route en post
-router.post("/", uploadVideo.single("video"), validateVideoCreate, uploadVideoController);
+router.post("/", uploadVideo.fields([ { name: "video", maxCount: 1 }, { name: "thumbnail", maxCount: 1 } ]), validateVideoCreate, uploadVideoController);
 
 export default router;
